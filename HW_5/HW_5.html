@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HW_5</title>
+</head>
+<body>
+<script>
+    // Тут ті самі завдання, що і в занятті про базові функції, але зробити їх потрібно за допомоги стрілочних функцій
+    // #I2XsG6f
+    // - створити функцію яка обчислює та повертає площу прямокутника зі сторонами а і б
+
+
+    const areaRectangle = (a, b) => {
+        const s = a * b;
+        return s;
+    };
+
+    console.log(areaRectangle(5, 5));
+
+    // #ETGAxbEn8l
+    // - створити функцію яка обчислює та повертає площу кола з радіусом r
+
+    const squareCircle = r => Math.PI * r ** 2;
+    console.log(squareCircle(5));
+
+    // #Mbiz5K4yFe7
+    // - створити функцію яка обчислює та повертає площу циліндру висотою h, та радіутом r
+
+    const squareCenlinder = (r, h) => 2 * Math.PI * r ** 2 + 2 * Math.PI * r * h;
+    console.log(squareCenlinder(5, 10));
+
+
+    // #SIdMd0hQ
+    // - створити функцію яка приймає масив та виводить кожен його елемент
+
+    let cars = ['bmw', 'toyota', 'mercedes']
+
+    const printArray = someArray => {
+        for (const someArrayElement of someArray) {
+            console.log(someArrayElement)
+        }
+    };
+
+    printArray(cars)
+
+
+    // #59g0IsA
+    // - створити функцію яка створює параграф з текстом та виводить його через document.write. Текст задати через аргумент
+
+    const createParagraph = textParagraph => document.write(`<p>${textParagraph}</p>`);
+    //
+    createParagraph('My text')
+
+    // #hOL6126
+    // - створити функцію яка створює ul з трьома елементами li та виводить його через document.write. Текст li задати через аргумент всім однаковий
+
+    const createUl = () => {
+        document.write('<ul>')
+        let li = 0
+        while (li < 3) {
+            document.write('<li>Any text</li>')
+            li++;
+        }
+
+        document.write('</ul>')
+    };
+
+    createUl()
+
+    // #0Kxco1edSN
+    // - створити функцію яка створює ul з  елементами li. Текст li задати через аргумент всім однаковий. Кількість li визначається другим аргументом, який є числовим (тут використовувати цикл) та виводить його через document.write
+
+    const createUlAndLi = (liText, numberIteration) => {
+        document.write('<ul>')
+
+        for (let i = 0; i < numberIteration; i++) {
+            document.write(`<li>${liText}</li>`)
+        }
+        document.write('</ul>')
+    };
+
+    createUlAndLi('any text', 100)
+
+
+    // #gEFoxMMO
+    // - створити функцію яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує для них список (ul li) та виводить його через document.write
+    let anySymbols = [1, 'asd', true]
+    const createLiFromArr = arr => {
+        document.write('<ul>')
+
+        for (const arrElement of arr) {
+            document.write(`<li>${arrElement}</li>`)
+        }
+        document.write('</ul>')
+    };
+
+    createLiFromArr(anySymbols)
+
+
+    // #bovDJDTIjt
+    // - створити функцію яка приймає масив об'єктів з наступними полями id,name,age , та виводить їх в документ. Для кожного об'єкту окремий блок.
+    let users = [
+        {id: 1, name: 'Олександр', age: 25},
+        {id: 2, name: 'Марія', age: 30},
+        {id: 3, name: 'Іван', age: 22},
+        {id: 4, name: 'Анна', age: 27},
+        {id: 5, name: 'Дмитро', age: 35}
+    ];
+
+    const displayArrInBlock = arr => {
+        for (const arrElement of arr) {
+            document.write(`<div class="main-block">
+                            <p><strong>ID: ${arrElement.id}</p>
+                            <p><strong>NAME: ${arrElement.name}</p>
+                            <p><strong>AGE: ${arrElement.age}</p>
+                                </div>`)
+        }
+    };
+
+    displayArrInBlock(users)
+
+
+    // #pghbnSB
+    // - створити функцію яка повертає найменьше число з масиву
+
+    let numbers = [1, 2, 565, 9, -123, -1, 0,]
+
+    const lesserNumber = arr => Math.min(...arr);
+    console.log(lesserNumber(numbers))
+
+
+    // #EKRNVPM
+    // - створити функцію sum(arr) яка приймає масив чисел, сумує значення елементів масиву та повертає його. Приклад sum([1,2,10]) //->13
+    // #kpsbSQCt2Lf
+    let number = [1, 2, 3, 3, 4, 4, 3]
+
+    const sum = arr => {
+        let sumNumbers = 0
+        for (const arrElement of arr) {
+            sumNumbers += arrElement
+        }
+        return sumNumbers
+    };
+
+    console.log(sum(number))
+
+
+    // #kpsbSQCt2Lf
+    // - створити функцію swap(arr,index1,index2). Функція міняє місцями заняення у відповідних індексах
+    // Приклад  swap([11,22,33,44],0,1) //=> [22,11,33,44]
+    // ------------------------------------------------ ця задача була для мене тяжка, я не міг вирішити тому дивився на ДЗ вирішення --------------------------------
+    const swap = (arr, index1, index2) => {
+        let temp = arr[index1]
+        console.log(temp) //11
+
+        arr[index1] = arr[index2]
+        console.log(arr[index1]) //22
+
+        arr[index2] = temp
+        console.log(arr[index2])
+
+        return arr
+    };
+
+    console.log(swap([11, 22, 33, 44], 0, 1))
+
+
+    // #mkGDenYnNjn
+    // - Написати функцію обміну валюти exchange(sumUAH,currencyValues,exchangeCurrency)
+    // Приклад exchange(10000,[{currency:'USD',value:25},{currency:'EUR',value:42}],'USD') // => 400
+    // exchange(10000,[{currency:'USD',value:25},{currency:'EUR',value:42}],'USD')
+
+
+    const exchange = (sumUAH, currencyValues, exchangeCurrency) => {
+        for (const currencyElement of currencyValues) {
+            if (currencyElement.currency === exchangeCurrency) {
+                let sum = sumUAH / currencyElement.value
+                return sum
+            }
+        }
+    };
+
+    console.log(exchange(10000, [{currency: 'USD', value: 25}, {currency: 'EUR', value: 42}], 'EUR'));
+</script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HW_2
+    </title>
+</head>
+<script>
+    // #67kfznmiMl
+
+    let int = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    console.log(int)
+
+    // #LARqoUj5I
+
+    const book1 = {
+        title: "Star Wars",
+        pageCount: 300,
+        genre: "War in space"
+    };
+    //
+    const book2 = {
+        title: "1984",
+        pageCount: 400,
+        genre: "Antiytopia"
+    };
+
+    const book3 = {
+        title: "Kolokain",
+        pageCount: 500,
+        genre: "Antiytopia"
+    };
+
+    console.log(book1, book2, book3)
+
+    // #sA3Gg1sCp
+    const book4 = {
+        title: "Gary Potter",
+        pageCount: 600,
+        genre: "Fantasy",
+        authors: [{
+            name: 'Vasya',
+            age: 35
+        }]
+    }
+
+    const book5 = {
+        title: "Kolobok",
+        pageCount: 700,
+        genre: "Fantasy",
+        authors: [{
+            name: 'Bob',
+            age: 40
+        }]
+    }
+
+    const book6 = {
+        title: "Bible",
+        pageCount: 800,
+        genre: "any genre",
+        authors: [{
+            name: 'Bible',
+            age: 25
+        }]
+    }
+
+
+    console.log(book4, book5, book6)
+
+
+    // #jCHFnEbdmFd
+    let users = [
+        {name: 'Vasya', username: 'perchik', password: '123'},
+        {name: 'Kolya', username: 'vorobey', password: '456'},
+        {name: 'Inna', username: 'kengutu', password: '789'},
+        {name: 'Anna', username: 'ptica', password: 'qwe'},
+        {name: 'Ira', username: 'styl', password: 'rty'},
+        {name: 'Bob', username: 'telefon', password: 'yui'},
+        {name: 'Yan', username: 'stol', password: 'asd'},
+        {name: 'sasha', username: 'portfel6', password: 'fgh'},
+        {name: 'katya', username: 'knopka', password: 'jkl'},
+        {name: 'serhii', username: 'yanuk', password: 'zxc'}
+    ]
+
+    console.log(users)
+
+    // #coYydZuaeEB
+    let temperatureWeather = [
+        {
+            day: "Monday",
+            morning: {temperature: 1},
+            middleDay: {temperature: 2},
+            evening: {temperature: 3}
+        },
+        {
+            day: "Tuesday",
+            morning: {temperature: 4},
+            middleDay: {temperature: 5},
+            evening: {temperature: 6}
+        },
+        {
+            day: "Wednesday",
+            morning: {temperature: 7},
+            middleDay: {temperature: 8},
+            evening: {temperature: 9}
+        },
+        {
+            day: "Thursday",
+            morning: {temperature: 10},
+            middleDay: {temperature: 11},
+            evening: {temperature: 12}
+        },
+        {
+            day: "Friday",
+            morning: {temperature: 13},
+            middleDay: {temperature: 14},
+            evening: {temperature: 15}
+        },
+        {
+            day: "Saturday",
+            morning: {temperature: 16},
+            middleDay: {temperature: 17},
+            evening: {temperature: 18}
+        },
+        {
+            day: "Sunday",
+            morning: {temperature: 19},
+            middleDay: {temperature: 20},
+            evening: {temperature: 21}
+        }
+    ];
+
+    console.log(temperatureWeather)
+
+    // Логічні розгалуження:
+    // #bAUsaq6LI
+
+    const x = 1   /* 1,0,-3 */
+
+    if (x === 0) {
+    console.log('Вірно!')
+    } else {
+    console.log('Невірно!')
+    }
+
+    // #3ckURgvs
+
+    const time = 59
+
+    if (time <= 14) {
+    console.log('Перша четверть')
+    } else if (time >= 15 && time <= 29) {
+    console.log('Друга четверть')
+    } else if (time >= 30 && time <= 44) {
+    console.log('Третя четверть')
+    } else if (time >= 45 && time <= 59) {
+    console.log('Четверта четверть')
+    } else {
+    console.log('Неправильное число, введіть від 0 до 59')
+    }
+
+    // #UMoNq4biWGe
+    const day = 5
+    if (day >= 1 && day <= 11) {
+        console.log('Перша декада')
+    } else if (day >= 12 && day <= 21) {
+        console.log('Друга декада')
+    } else if (day >= 22 && day <= 31) {
+        console.log('Третя декада')
+    }
+
+    // #KzrtqyQ
+    let dayOfWeek = prompt('Type the day of the week: [monday,tuesday,wednesday,thursday,friday,saturday,sunday]')
+
+    switch (dayOfWeek) {
+        case 'monday':
+            document.write('<div><h1>Прибирати</h1></div>')
+            break;
+        case 'tuesday':
+            document.write('<div><h1>Приготувати іжу</h1></div>')
+            break;
+        case 'wednesday':
+            document.write('<div><h1>Прання</h1></div>')
+            break;
+        case 'thursday':
+            document.write('<div><h1>Спорт зал</h1></div>')
+            break;
+        case 'friday':
+            document.write('<div><h1>Вигуляти собаку</h1></div>')
+            break;
+        case 'saturday':
+            document.write('<div><h1>Допомогти родичам</h1></div>')
+            break;
+        case 'sunday':
+            document.write('<div><h1>Праюцвати</h1></div>')
+            break;
+        default:
+            document.write('<div><h1>Введи день тижня так як вказано в прикладі</h1></div>')
+    }
+
+    // #uwsz1RnTQJ1
+
+    let firstNumber = +prompt('Type any number')
+    let secondNumber = +prompt('Type any number again')
+    debugger
+    if (firstNumber > secondNumber) {
+        document.write(`<h1>Число ${firstNumber} більше за число ${secondNumber}</h1>`)
+    } else if (firstNumber < secondNumber) {
+        document.write(`<h1>Число ${secondNumber} більше за число ${firstNumber}</h1>`)
+    } else {
+        document.write(`<h1>Число ${firstNumber} таке саме як  ${secondNumber}</h1>`)
+    }
+
+    // #iBvqtjEm
+    let x = 0;
+
+    if (!x) {
+        document.write(`<h1>${x} дефолтне</h1>`)
+    }
+
+    // #awLXL6TBzg
+    let coursesAndDurationArray = [
+        {title: 'JavaScript Complex', monthDuration: 5},
+        {title: 'Java Complex', monthDuration: 6},
+        {title: 'Python Complex', monthDuration: 6},
+        {title: 'QA Complex', monthDuration: 4},
+        {title: 'FullStack', monthDuration: 7},
+        {title: 'Frontend', monthDuration: 4}
+    ];
+    console.log(coursesAndDurationArray)
+
+    coursesAndDurationArray.forEach(course => {
+        if (course.monthDuration > 5) {
+            document.write(`<h1>${course.title} Супер!</h1>`)
+        }
+    })
+</script>
+<body>
+</body>
+</html>
