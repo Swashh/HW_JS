@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*#text {*/
+        /*    width: 200px;*/
+        /*    height: 200px;*/
+        /*    background: brown;*/
+        /*}*/
+
+        /*button {*/
+        /*    display: block;*/
+        /*    width: 200px;*/
+        /*    margin-top: 20px*/
+        /*}*/
+
+        /*input {*/
+        /*    width: 200px;*/
+        /*    margin-bottom: 20px;*/
+        /*}*/
+
+        /*#block {*/
+        /*    display: flex;*/
+        /*    justify-content: center;*/
+        /*    align-items: center;*/
+        /*    width: 200px;*/
+        /*    height: 200px;*/
+        /*    background: brown;*/
+        /*}*/
+
+        /*#number {*/
+        /*    display: flex;*/
+        /*    justify-content: center;*/
+        /*    align-items: center;*/
+        /*    text-align: center;*/
+        /*    width: 50px;*/
+        /*    height: 50px;*/
+        /*    background: darkkhaki;*/
+        /*}*/
+
+        /*table,th,td{*/
+        /*    border: 10px solid grey;*/
+        /*    text-align:center;*/
+        /*}*/
+    </style>
+</head>
+<body>
+
+<!--<form id="form">-->
+<!--    <input type="text" name="name" id="inputName" placeholder="Enter your name">-->
+<!--    <input type="text" name="surname" id="inputSurname" placeholder="Enter your surname">-->
+<!--    <input type="text" name="age" id="inputAge" placeholder="Enter your age">-->
+<!--    <button type="submit">Confirm button</button>-->
+<!--</form>-->
+
+
+<!--<form name="generateTable">-->
+<!--    <input type="number" name="lines">-->
+<!--    <input type="number" name="cells">-->
+<!--    <input type="text" name="text">-->
+<!--    <button>Generate button</button>-->
+<!--</form>-->
+
+
+<button>prev</button>
+<button>next</button>
+<table id="tableContainer"></table>
+<script>
+    // #sH8c4er
+    // - Створити довільний елемент з id = text та створити кнопку.
+    // Використовуючи JavaScript, зробіть так,
+    // щоб при натисканні на кнопку зникав елемент з id="text".
+
+    // let div = document.createElement('div') // створив div
+    // div.setAttribute('id', 'text') // додав id='text'
+    //
+    // let btn = document.createElement('button') // створили кнопку
+    // btn.innerText = 'Click on the button' // додали текст в кнопку
+    //
+    // //витягую блок по айді і оваю його по клік івенту
+    // btn.onclick = function () {
+    //     let getBlockWithId = document.getElementById('text')
+    //     getBlockWithId.style.display = 'none'
+    // }
+    //
+    // document.body.append(div, btn) // додаєм елементи в тіло та відображаєм
+
+
+    // #j693ca8
+    // Створити інпут який приймає вік людини та кнопку яка підтверджує дію.
+    // При натисканні на кнопку зчитати інформацію з інпуту та перевірити вік чи меньше він ніж 18,
+    // та повідомити про це користувача
+
+    // let inputAge = document.createElement('input')
+    // inputAge.placeholder = 'Enter your age';
+    //
+    // let confirmBtn = document.createElement('button')
+    // confirmBtn.innerText = 'Confirm age button'
+    //
+    // confirmBtn.onclick = function () {
+    //     let userAge = Number(inputAge.value)
+    //
+    //     if (userAge < 18) {
+    //         return alert('Користувачу меньше 18 років ')
+    //     }
+    // }
+    //
+    // document.body.append(inputAge, confirmBtn)
+
+
+    // #ymAmN2xJ
+    // Стоврити форму з трьома полями для name,sruname,age та кнопкою.
+    // При натисканні на кнопку зчитати данні з полів, та вивести об'єкт в документ.
+    // Іншими словами : заповниои форму, натиснули кнопку, під формою з'явився блок з вашим об'єктом
+
+    // const form = document.forms.form
+    // form.
+    // let getConfirmBtn = document.querySelector('#form button')
+    // let userInfo = document.createElement('div')
+    // document.body.appendChild(userInfo);
+    //
+    // getConfirmBtn.onclick = function () {
+    //     let getName = document.getElementById('inputName').value;
+    //     let getSurname = document.getElementById('inputSurname').value
+    //     let getAge = document.getElementById('inputAge').value
+    //
+    //     let obj = {
+    //         getName, getSurname, getAge
+    //     }
+    //
+    //     userInfo.innerText = `Name ${obj.getName} - Surname ${getSurname} - Age - ${obj.getAge}`
+    //     console.log(obj);
+    // }
+
+
+    // #2VaLt4vDczH
+    // є сторінка, на якій є блок, я кому знаходиьтся цифра.
+    // написати код, який при кожному перезавантажені сторінки буде додавати до неї +1
+
+    // //блок
+    // let block = document.createElement('div')
+    // block.setAttribute('id', 'block')
+    //
+    // //блок з цифрою
+    // let number = document.createElement('div')
+    // number.setAttribute('id', 'number')
+    // // відображаю 0
+    //
+    // // сетим каунт в локалсторідж
+    // let count = localStorage.getItem('count')
+    // //якщо там ничгео немає то починаємо з -1 і записуєм його
+    // if (count === null) {
+    //     count = -1
+    // } else {
+    //     count = parseInt(count);
+    // }
+    //
+    // count += 1;
+    //
+    // number.innerText = count;
+    //
+    // localStorage.setItem('count', count)
+    //
+    // block.appendChild(number)
+    //
+    // document.body.appendChild(block)
+
+
+    // #LhSfdhM3
+    // Є сторінка index.html (назва довільна), при відвідуванні якої в локальне сховще,
+    // в масив sessionsList зберігається інформація про дату та час відвідування сторінки.
+    // Є  сторінка sessionsListPage.html (назва довільна), при відвідуванні якої потрібно відмалювати
+    // всю інформацію про відвідування сторінки index.html. Інфу НЕ виводити в консоль, а малювати в DOM
+
+
+    // #Jg0gPO00
+    // Створити конвертор ваги з кг в фунти. данні заповнюються через інпут.
+    // При введенні даних обрахунок стається миттєво, без натискань додаткових кнопок
+
+    // let kilogramInput = document.createElement('input')
+    // kilogramInput.setAttribute('id', 'kilogram')
+    //
+    // let poundsInput = document.createElement('input')
+    // poundsInput.setAttribute('id', 'pounds')
+    //
+    // kilogramInput.oninput = function () {
+    //     const kgToLbs = 2.205
+    //     let textKgInput = document.getElementById('kilogram').value
+    //
+    //     let lbsInput = document.getElementById('pounds')
+    //
+    //     let converter = textKgInput * kgToLbs
+    //
+    //
+    //     lbsInput.value = converter
+    // }
+    //
+    // document.body.append(kilogramInput, poundsInput)
+
+
+    // #RbQGnH5DuC
+    // В localStorage зберігаються масиви.
+    // Вам потрібно зробити функцію, які дістає потрібний вам масив з localStorage та додає в нього об'єкт
+    // сигнатура функції -
+
+    // let numbers = [1, 2, 3]
+    // localStorage.setItem('numbers', JSON.stringify(numbers))
+    //
+    // function addToLocalStorage(arrayName, objToAdd) {
+    //     let getItem = localStorage.getItem(arrayName)
+    //
+    //     if (!getItem) {
+    //         throw new Error('ERROR')
+    //     }
+    //
+    //     let getParseArr = JSON.parse(getItem)
+    //     getParseArr.push(objToAdd)
+    //
+    //
+    //     let json = JSON.stringify(getParseArr)
+    //
+    //     localStorage.setItem(arrayName, json)
+    // }
+    //
+    // addToLocalStorage('numbers', {})
+
+
+    // #kUSgFqWY
+    // Створити 3 інпута та кнопку.
+    // Один визначає кількість рядків,
+    // другий - кількість ячеєк,
+    // третій вмиіст ячеєк.
+    // При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
+    // ----------------------------------- ЦЕ СКЛАДНА ЗАДАЧКА, НЕ ЗНАВ ЯК РОБИТИ -------------------------------------------------------
+    //
+    // let form = document.forms['generateTable'];
+    // let tableContainer = document.getElementById('tableContainer');
+    //
+    form.onsubmit = function (e) {
+        e.preventDefault();
+
+        let lines = +form.lines.value;
+        let cells = +form.cells.value;
+        let text = form.text.value;
+        tableContainer.innerText = '';
+
+        let table = document.createElement('table');
+        table.setAttribute('id', 'table');
+
+        for (let i = 0; i < lines; i++) {
+            const tr = document.createElement('tr');
+            for (let j = 0; j < cells; j++) {
+                const td = document.createElement('td');
+                td.innerText = text;
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+
+        tableContainer.appendChild(table);
+    };
+
+
+    // #bq1zkx7WP
+    // створити сторінку з довільним блоком, в середині якого є значення "100грн"
+    // при перезавантаженні сторінки до значаення додається по 10грн, але !!!
+    // зміна ціни відбувається тільки на перезавантаження, які відбулись пізніше ніж 10 секунд після попереднього.
+    // При перезавантаженні, яке відбулось раніше ніж минуло 10 секунд - нічого не відбувається
+
+
+    // #NKB0tgWIK1G
+    // ***PAGINATION
+    // зробити масив на 100 об'єктів та дві кнопки prev next
+    // при завантажені сторінки з'являються перші 10 об'єктів.
+    // При натисканні next виводяться наступні 10 об'єктів
+    // При натисканні prev виводяться попередні 10 об'єктів
+
+
+    const array = [
+        { id: 1, name: "Item 1", value: 10 },
+        { id: 2, name: "Item 2", value: 20 },
+        { id: 3, name: "Item 3", value: 30 },
+        { id: 4, name: "Item 4", value: 40 },
+        { id: 5, name: "Item 5", value: 50 },
+        { id: 6, name: "Item 6", value: 60 },
+        { id: 7, name: "Item 7", value: 70 },
+        { id: 8, name: "Item 8", value: 80 },
+        { id: 9, name: "Item 9", value: 90 },
+        { id: 10, name: "Item 10", value: 100 },
+        { id: 11, name: "Item 11", value: 110 },
+        { id: 12, name: "Item 12", value: 120 },
+        { id: 13, name: "Item 13", value: 130 },
+        { id: 14, name: "Item 14", value: 140 },
+        { id: 15, name: "Item 15", value: 150 },
+        { id: 16, name: "Item 16", value: 160 },
+        { id: 17, name: "Item 17", value: 170 },
+        { id: 18, name: "Item 18", value: 180 },
+        { id: 19, name: "Item 19", value: 190 },
+        { id: 20, name: "Item 20", value: 200 },
+        { id: 21, name: "Item 21", value: 210 },
+        { id: 22, name: "Item 22", value: 220 },
+        { id: 23, name: "Item 23", value: 230 },
+        { id: 24, name: "Item 24", value: 240 },
+        { id: 25, name: "Item 25", value: 250 },
+        { id: 26, name: "Item 26", value: 260 },
+        { id: 27, name: "Item 27", value: 270 },
+        { id: 28, name: "Item 28", value: 280 },
+        { id: 29, name: "Item 29", value: 290 },
+        { id: 30, name: "Item 30", value: 300 },
+        { id: 31, name: "Item 31", value: 310 },
+        { id: 32, name: "Item 32", value: 320 },
+        { id: 33, name: "Item 33", value: 330 },
+        { id: 34, name: "Item 34", value: 340 },
+        { id: 35, name: "Item 35", value: 350 },
+        { id: 36, name: "Item 36", value: 360 },
+        { id: 37, name: "Item 37", value: 370 },
+        { id: 38, name: "Item 38", value: 380 },
+        { id: 39, name: "Item 39", value: 390 },
+        { id: 40, name: "Item 40", value: 400 },
+        { id: 41, name: "Item 41", value: 410 },
+        { id: 42, name: "Item 42", value: 420 },
+        { id: 43, name: "Item 43", value: 430 },
+        { id: 44, name: "Item 44", value: 440 },
+        { id: 45, name: "Item 45", value: 450 },
+        { id: 46, name: "Item 46", value: 460 },
+        { id: 47, name: "Item 47", value: 470 },
+        { id: 48, name: "Item 48", value: 480 },
+        { id: 49, name: "Item 49", value: 490 },
+        { id: 50, name: "Item 50", value: 500 },
+        { id: 51, name: "Item 51", value: 510 },
+        { id: 52, name: "Item 52", value: 520 },
+        { id: 53, name: "Item 53", value: 530 },
+        { id: 54, name: "Item 54", value: 540 },
+        { id: 55, name: "Item 55", value: 550 },
+        { id: 56, name: "Item 56", value: 560 },
+        { id: 57, name: "Item 57", value: 570 },
+        { id: 58, name: "Item 58", value: 580 },
+        { id: 59, name: "Item 59", value: 590 },
+        { id: 60, name: "Item 60", value: 600 },
+        { id: 61, name: "Item 61", value: 610 },
+        { id: 62, name: "Item 62", value: 620 },
+        { id: 63, name: "Item 63", value: 630 },
+        { id: 64, name: "Item 64", value: 640 },
+        { id: 65, name: "Item 65", value: 650 },
+        { id: 66, name: "Item 66", value: 660 },
+        { id: 67, name: "Item 67", value: 670 },
+        { id: 68, name: "Item 68", value: 680 },
+        { id: 69, name: "Item 69", value: 690 },
+        { id: 70, name: "Item 70", value: 700 },
+        { id: 71, name: "Item 71", value: 710 },
+        { id: 72, name: "Item 72", value: 720 },
+        { id: 73, name: "Item 73", value: 730 },
+        { id: 74, name: "Item 74", value: 740 },
+        { id: 75, name: "Item 75", value: 750 },
+        { id: 76, name: "Item 76", value: 760 },
+        { id: 77, name: "Item 77", value: 770 },
+        { id: 78, name: "Item 78", value: 780 },
+        { id: 79, name: "Item 79", value: 790 },
+        { id: 80, name: "Item 80", value: 800 },
+        { id: 81, name: "Item 81", value: 810 },
+        { id: 82, name: "Item 82", value: 820 },
+        { id: 83, name: "Item 83", value: 830 },
+        { id: 84, name: "Item 84", value: 840 },
+        { id: 85, name: "Item 85", value: 850 },
+        { id: 86, name: "Item 86", value: 860 },
+        { id: 87, name: "Item 87", value: 870 },
+        { id: 88, name: "Item 88", value: 880 },
+        { id: 89, name: "Item 89", value: 890 },
+        { id: 90, name: "Item 90", value: 900 },
+        { id: 91, name: "Item 91", value: 910 },
+        { id: 92, name: "Item 92", value: 920 },
+        { id: 93, name: "Item 93", value: 930 },
+        { id: 94, name: "Item 94", value: 940 },
+        { id: 95, name: "Item 95", value: 950 },
+        { id: 96, name: "Item 96", value: 960 },
+        { id: 97, name: "Item 97", value: 970 },
+        { id: 98, name: "Item 98", value: 980 },
+        { id: 99, name: "Item 99", value: 990 },
+        { id: 100, name: "Item 100", value: 1000 }
+    ];
+
+
+
+</script>
+</body>
+</html>

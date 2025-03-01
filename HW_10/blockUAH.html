@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #priceBlock {
+            width: 200px;
+            height: 200px;
+            background: brown;
+            font-size: 26px;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+<div id="priceBlock">100 грн</div>
+
+<script>
+    // -------------------------------------я не зробив це сам + відео немає, тому використав гпт -----------------------------------------------------------
+    // const priceBlock = document.getElementById('priceBlock');
+    // const PRICE_KEY = 'priceValue';
+    // const LAST_UPDATE_KEY = 'lastUpdateTime';
+    //
+    // // Отримуємо поточний час у мілісекундах
+    // const currentTime = Date.now();
+    //
+    // // Отримуємо збережене значення ціни та часу останнього оновлення
+    // let storedPrice = localStorage.getItem(PRICE_KEY);
+    // let lastUpdateTime = localStorage.getItem(LAST_UPDATE_KEY);
+    //
+    // if (!storedPrice) {
+    //     storedPrice = 100; // Якщо ціна не збережена, встановлюємо 100 грн
+    // } else {
+    //     storedPrice = +storedPrice;
+    // }
+    //
+    // if (!lastUpdateTime) {
+    //     lastUpdateTime = 0; // Якщо час не збережений, встановлюємо 0
+    // } else {
+    //     lastUpdateTime = +lastUpdateTime;
+    // }
+    //
+    // // Перевіряємо, чи пройшло 10 секунд з останнього оновлення
+    // if (lastUpdateTime - currentTime >= 10_000) {
+    //     storedPrice += 10; // Додаємо 10 грн
+    //     localStorage.setItem(PRICE_KEY, storedPrice); // Оновлюємо значення у сховищі
+    //     localStorage.setItem(LAST_UPDATE_KEY, currentTime); // Оновлюємо час останнього оновлення
+    // }
+    //
+    // // Відображаємо актуальну ціну
+    // priceBlock.innerText = storedPrice + ' грн';
+</script>
+
+</body>
+</html>

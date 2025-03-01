@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #cart-info {
+            border-block: 5px solid red;
+        }
+
+        #product-info {
+            border: 2px solid red;
+            padding: 10px;
+            border-radius: 25px;
+            width: 300px;
+            margin-bottom: 10px;
+        }
+
+        #product-info img {
+            width: 200px;
+            height: 200px;
+        }
+
+        hr {
+            border: 10px solid green;
+            border-radius: 5px;
+        }
+
+        #recipesDiv img {
+            width: 200px;
+            height: 200px;
+        }
+
+
+    </style>
+</head>
+<body>
+<script>
+
+    // #HmvAfRQM
+    // - взяти https://dummyjson.com/docs/carts та вивести інформацію про всі корзини. Відобразити всі поля кожної корзини.
+
+
+    // ----------------------------------------------ПЕРШИЙ СПОСІБ--------------------------------------------------------------
+    // fetch('https://dummyjson.com/carts?limit=1')
+    //     .then(res => res.json())
+    //     .then(cartArr =>
+    //         cartArr.carts.forEach(cart => {
+    //
+    //             document.write(`<div>ID Корзини - ${cart.id}</div>`)
+    //             document.write(`<div>Повна ціна - ${cart.total}</div>`)
+    //             document.write(`<div>Повна ціна з скидкою - ${cart.discountedTotal}</div>`)
+    //             document.write(`<div>ID користувача - ${cart.userId}</div>`)
+    //             document.write(`<div>Загальна кількість товарів - ${cart.totalProducts}</div>`)
+    //             document.write(`<div>Загальна кількість одиниць - ${cart.totalQuantity}</div>`)
+    //             cart.products.forEach(product => {
+    //                 document.write(`<div>ID продукту - ${product.id}</div>`)
+    //                 document.write(`<div>Назва продукту - ${product.title}</div>`)
+    //                 document.write(`<div>Ціна продукту - ${product.price}</div>`)
+    //                 document.write(`<div>Кількість продукту - ${product.quantity}</div>`)
+    //                 document.write(`<div>Скидка у відсотках продукту - ${product.discountPercentage}</div>`)
+    //                 document.write(`<div>Загальна скидка продукту- ${product.discountedTotal}</div>`)
+    //                 document.write(`<img src=${product.thumbnail} alt=${product.title} />`)
+    //             })
+    //         })
+    //     )
+    // ----------------------------------------------ДРУГИЙ СПОСІБ--------------------------------------------------------------
+
+    // fetch('https://dummyjson.com/carts?limit=3')
+    //     .then(res => res.json())
+    //     .then(cartArr => {
+    //         cartArr.carts.forEach(cart => {
+    //             let divCart = document.createElement('div');
+    //             divCart.setAttribute('id', 'cart-info');
+    //             document.body.append(divCart);
+    //
+    //             divCart.innerHTML = `
+    //             <div>ID Корзини - ${cart.id}</div>
+    //             <div>Повна ціна - ${cart.total}</div>
+    //             <div>Повна ціна зі знижкою - ${cart.discountedTotal}</div>
+    //             <div>ID користувача - ${cart.userId}</div>
+    //             <div>Загальна кількість товарів - ${cart.totalProducts}</div>
+    //             <div>Загальна кількість одиниць - ${cart.totalQuantity}</div>
+    //             <h3>Товари:</h3>
+    //             <hr>
+    //         `;
+    //
+    //             cart.products.forEach(product => {
+    //                 let divProduct = document.createElement('div');
+    //                 divProduct.setAttribute('id', 'product-info');
+    //
+    //                 divProduct.innerHTML = `
+    //                 <div>ID продукту - ${product.id}</div>
+    //                 <div>Назва продукту - ${product.title}</div>
+    //                 <div>Ціна продукту - ${product.price}</div>
+    //                 <div>Кількість продукту - ${product.quantity}</div>
+    //                 <div>Скидка у відсотках - ${product.discountPercentage}%</div>
+    //                 <div>Загальна ціна зі знижкою - ${product.discountedTotal}</div>
+    //                 <img src="${product.thumbnail}" alt="${product.title}" />
+    //             `;
+    //
+    //                 divCart.appendChild(divProduct);
+    //             });
+    //         });
+    //     });
+
+
+    // #whXxOBlYS0H
+    // - взяти https://dummyjson.com/docs/recipes та вивести інформацію про всі рецепти.
+    // Інгредієнти повинні бути список під час відображення.
+
+    // fetch('https://dummyjson.com/recipes?limit=10')
+    //     .then(res => res.json())
+    //     .then(recipes =>
+    //         recipes.recipes.forEach(recipesInfo => {
+    //             let recipesDiv = document.createElement('div')
+    //             recipesDiv.setAttribute('id', 'recipesDiv')
+    //
+    //             let ingredientsList = document.createElement('ul');
+    //
+    //             recipesInfo.ingredients.forEach(ingredient => {
+    //                 let listItem = document.createElement('li');
+    //                 listItem.innerText = ingredient;
+    //                 ingredientsList.appendChild(listItem);
+    //             });
+    //
+    //             recipesDiv.innerHTML = `
+    //                 <div>Калоріі на порцію - ${recipesInfo.caloriesPerServing}</div>
+    //                 <div>Час на приготування - ${recipesInfo.cookTimeMinutes}</div>
+    //                 <div>Вид кухні - ${recipesInfo.cuisine}</div>
+    //                 <div>Складність - ${recipesInfo.difficulty}</div>
+    //                 <div>Айді - ${recipesInfo.id}</div>
+    //                 <img src="${recipesInfo.image}" alt="${recipesInfo.name}">
+    //
+    //                 <div>Список інгрідієнтів - ${recipesInfo.ingredients}</div>
+    //
+    //                  <div>Список інгредієнтів:</div>
+    //                  `
+    //             recipesDiv.appendChild(ingredientsList);
+    //
+    //             recipesDiv.innerHTML += `
+    //                 <div>Інструкція - ${recipesInfo.instructions}</div>
+    //                 <div>Вид мяса - ${recipesInfo.mealType}</div>
+    //                 <div>Назва рецепту - ${recipesInfo.name}</div>
+    //                 <div>Час підготовки - ${recipesInfo.prepTimeMinutes}</div>
+    //                 <div>Рейтинг - ${recipesInfo.rating}</div>
+    //                 <div>Кількість переглядів - ${recipesInfo.reviewCount}</div>
+    //                 <div>Порціі - ${recipesInfo.servings}</div>
+    //                 <div>Теги - ${recipesInfo.tags}</div>
+    //                 <div>Айді користувача - ${recipesInfo.userId}</div>
+    //                 `
+    //             document.body.appendChild(recipesDiv)
+    //         })
+    //     );
+
+</script>
+</body>
+</html>
