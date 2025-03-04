@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="user-details.css">
+</head>
+<body>
+<div id="userDetails"></div>
+<div id="horizontalLine"></div>
+<div id="userPosts"></div>
+<button type="button" id="showPostBtn" onclick="showPostTitleCurrentUser()">post of current user</button>
+</body>
+<script>
+    function getUserIdFromUrl() {
+        const params = new URLSearchParams(window.location.search);
+        return params.get('userId')
+    }
+
+    const url = 'https://jsonplaceholder.typicode.com/users';
+    const userId = getUserIdFromUrl();
+    const userDetails = document.getElementById('userDetails');
+
+    if (userId) {
+        fetch(`${url}/${userId}`)
+            .then(response => response.json())
+            .then(userFullData => {
+                const blockUser = document.createElement('div');
+                let html = '';
+
+                if (typeof userFullData === 'object' && userFullData !== null) {
+                    // Выводим верхний уровень
+                    html += `<p><strong>ID:</strong> ${userFullData.id}</p>`;
+                    html += `<p><strong>Имя:</strong> ${userFullData.name}</p>`;
+                    html += `<p><strong>Username:</strong> ${userFullData.username}</p>`;
+                    html += `<p><strong>Email:</strong> ${userFullData.email}</p>`;
+                    html += `<p><strong>Телефон:</strong> ${userFullData.phone}</p>`;
+                    html += `<p><strong>Сайт:</strong> ${userFullData.website}</p>`;
+
+                    // Проверяем и выводим вложенный объект address
+                    if (typeof userFullData.address === 'object' && userFullData.address !== null) {
+                        html += `<p><strong>Улица:</strong> ${userFullData.address.street}</p>`;
+                        html += `<p><strong>Квартира:</strong> ${userFullData.address.suite}</p>`;
+                        html += `<p><strong>Город:</strong> ${userFullData.address.city}</p>`;
+                        html += `<p><strong>Почтовый индекс:</strong> ${userFullData.address.zipcode}</p>`;
+
+                        // Проверяем и выводим вложенный объект geo внутри address
+                        if (typeof userFullData.address.geo === 'object' && userFullData.address.geo !== null) {
+                            html += `<p><strong>Широта:</strong> ${userFullData.address.geo.lat}</p>`;
+                            html += `<p><strong>Долгота:</strong> ${userFullData.address.geo.lng}</p>`;
+                        }
+                    }
+
+                    // Проверяем и выводим вложенный объект company
+                    if (typeof userFullData.company === 'object' && userFullData.company !== null) {
+                        html += `<p><strong>Компания:</strong> ${userFullData.company.name}</p>`;
+                        html += `<p><strong>Слоган:</strong> ${userFullData.company.catchPhrase}</p>`;
+                        html += `<p><strong>BS:</strong> ${userFullData.company.bs}</p>`;
+                    }
+                } else {
+                    html = '<p>Данные не являются объектом</p>';
+                }
+
+                blockUser.innerHTML = html;
+                userDetails.appendChild(blockUser);
+            })
+    }
+
+    function showPostTitleCurrentUser() {
+        const postCurrentUserUrl = `https://jsonplaceholder.typicode.com/users/${userId}/posts`
+        const divUserPosts = document.getElementById('userPosts')
+        fetch(postCurrentUserUrl)
+            .then(response => response.json())
+            .then(userPostData => {
+                for (const userPostDatum of userPostData) {
+                    const divPost = document.createElement('div')
+                    divPost.className = 'postBlock';
+
+                    //кнопка на сторінку конкретного поста
+                    const navLinkUserDetails = document.createElement('a');
+                    navLinkUserDetails.href = `post-details.html?userId=${userId}&postId=${userPostDatum.id}`;
+                    // navLinkUserDetails.target = '_blank';
+                    navLinkUserDetails.textContent = 'Клик';
+
+                    divPost.innerText = `${userPostDatum.title}`
+                    divUserPosts.append(divPost, navLinkUserDetails)
+                }
+            })
+    }
+
+</script>
+</html>

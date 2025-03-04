@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User info</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="mainBlock"></div>
+</body>
+<script>
+    const url = new URL('https://jsonplaceholder.typicode.com/users')
+    const mainBlock = document.getElementById('mainBlock')
+    fetch(url)
+        .then(response => response.json())
+        .then(userData => {
+            for (const userDatum of userData) {
+                // Создаем блок для каждого пользователя
+                const blockUser = document.createElement('div');
+                blockUser.classList.add('blockUser');
+
+                // Информация о пользователе в отдельном элементе
+                const userInfo = document.createElement('p');
+                userInfo.innerText = `${userDatum.id} : ${userDatum.name}`;
+
+                // Создаем кнопку
+                const navLinkUserDetails = document.createElement('a');
+                navLinkUserDetails.href = `user-details.html?userId=${userDatum.id}`;
+                // navLinkUserDetails.target = '_blank';
+                navLinkUserDetails.textContent = 'Клик';
+
+                // Добавляем информацию и ссылку внутрь блока
+                blockUser.appendChild(userInfo);
+                blockUser.appendChild(navLinkUserDetails);
+
+                // Добавляем блок в mainBlock
+                mainBlock.appendChild(blockUser);
+            }
+        });
+</script>
+</html>
